@@ -1,41 +1,75 @@
 <!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bagas Nasuiton — Galaxy Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css"></head><body>
-<canvas id="stars"></canvas><div class="glow" id="glow"></div>
-<div class="planet p1"></div><div class="planet p2"></div>
-<nav><a class="logo" href="#home"><img src="images/logo-idn.png" alt="IDN"></a>
-<div class="menu"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
-<a class="btn" href="https://wa.me/6289639154877?text=Halo%20saya%20dari%20website" target="_blank" rel="noopener">🚀 Chat</a></nav>
-<main>
-<section id="home" class="hero">
-<div class="orbit"><div class="ring"><i>🛰️</i></div><div class="ring r2"><i>🌙</i></div><img class="av" src="images/profil.jpg" alt="Foto Bagas"></div>
-<div><span class="tag">✦ WELCOME, SPACE TRAVELER ✦</span>
-<h1>Halo, aku<br>Bagas Nasuiton!</h1>
-<p class="t"><span id="typed"></span><span class="cur"></span></p>
-<a class="btn" href="#about">Jelajahi galaksiku ✨</a> <a class="btn ghost" href="#contact">Kirim sinyal 📡</a></div>
-</section>
-<section id="about"><h2 class="sec rev">About <span>Me</span></h2><p class="sub rev">Sedikit cerita dari planet Bagas 🪐</p>
-<div class="about"><div class="glass rev tilt"><p>Aku siswa SMP IDN Boarding School di Bogor yang lagi seru-serunya belajar bikin website. Buatku, coding itu seperti menjelajah luar angkasa: setiap baris kode membuka planet baru!</p><p>Cita-citaku jadi web developer yang bisa bikin tampilan keren, interaktif, dan bikin orang senyum.</p>
-<div class="chips"><span>🚀 Suka belajar</span><span>🎮 Suka eksplor</span><span>🏫 IDN Boarding School</span><span>📍 Bogor</span></div></div>
-<div class="glass me rev tilt"><img src="images/spiderman.webp" alt="Myself"><h3>Myself ✦ Superhero Mode</h3></div></div></section>
-<section id="skills"><p style="text-align:center"><span class="tag">MY ABILITIES</span></p><h2 class="sec rev">My <span>Skills</span></h2><p class="sub rev">Kekuatan super yang lagi aku asah ⚡</p>
-<div class="grid">
-<div class="glass sk rev tilt" style="--c:#ff7a45"><div class="ic" style="background:#ff7a45"><b>🪐</b></div><h3>HTML</h3><p>Menyusun struktur website dengan rapi dan benar.</p><div class="bar"><div data-w="90"></div></div><div class="pc" data-n="90">0%</div></div>
-<div class="glass sk rev tilt" style="--c:#5ee7ff"><div class="ic" style="background:#2b7bff"><b>🌌</b></div><h3>CSS</h3><p>Mendandani website supaya cantik dan berwarna.</p><div class="bar"><div data-w="80"></div></div><div class="pc" data-n="80">0%</div></div>
-<div class="glass sk rev tilt" style="--c:#ffd86b"><div class="ic" style="background:#d9a400"><b>🚀</b></div><h3>JavaScript</h3><p>Bikin website hidup dengan animasi dan interaksi.</p><div class="bar"><div data-w="75"></div></div><div class="pc" data-n="75">0%</div></div>
-</div></section>
-<section id="contact"><h2 class="sec rev">Kirim <span>Sinyal</span> 📡</h2><p class="sub rev">Ada pesan? Meluncurkan ke inbox-ku!</p>
-<div class="contact"><div class="glass rev"><form action="https://formsubmit.co/dion@idn.sch.id" method="POST">
-<label>Nama</label><input type="text" name="nama" placeholder="Masukkan nama anda..">
-<label>Alamat</label><input type="text" name="alamat" placeholder="Masukkan alamat anda...">
-<label>Gender</label><select name="jenis_kelamin"><option>Pilih gender anda</option><option value="Pria">Pria</option><option value="Wanita">Wanita</option></select>
-<label>Pesan</label><textarea name="pesan" placeholder="Masukkan pesan anda"></textarea>
-<button class="btn" type="submit">🚀 Kirim Pesan</button></form></div>
-<div class="glass loc rev"><div class="big">🌍</div><h3>Lokasi Saya</h3><p style="color:var(--mut)">SMP &amp; SMK IDN Boarding School, Bogor</p>
-<a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=SMP+%26+SMK+IDN+Boarding+School">Buka di Maps 🗺️</a></div></div></section>
-</main>
-<footer>Dibuat dengan ☄️ & semangat belajar — Bagas Nasuiton © 2026<br><small>Klik di mana saja untuk meledakkan bintang ✨</small></footer>
-<script src="script.js"></script></body></html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d6b32">
+    <title>Tiket Masuk | Bagas Bagus</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+        <defs><clipPath id="ballclip"><circle cx="50" cy="50" r="47"/></clipPath></defs>
+        <symbol id="ball" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="47" fill="#fff" stroke="#0b2a17" stroke-width="4"/>
+            <g clip-path="url(#ballclip)" fill="#0b2a17">
+                <polygon points="50,33 66,45 60,64 40,64 34,45"/>
+                <circle cx="50" cy="0" r="13"/><circle cx="97.5" cy="34.5" r="13"/>
+                <circle cx="79.4" cy="90.5" r="13"/><circle cx="20.6" cy="90.5" r="13"/>
+                <circle cx="2.5" cy="34.5" r="13"/>
+            </g>
+            <g stroke="#0b2a17" stroke-width="3" stroke-linecap="round">
+                <line x1="50" y1="33" x2="50" y2="12"/><line x1="66" y1="45" x2="86" y2="38"/>
+                <line x1="60" y1="64" x2="72" y2="81"/><line x1="40" y1="64" x2="28" y2="81"/>
+                <line x1="34" y1="45" x2="14" y2="38"/>
+            </g>
+        </symbol>
+    </svg>
+
+    <!-- bola-bola yang melayang di latar -->
+    <div class="floaters" aria-hidden="true">
+        <svg style="--x:6%;  --s:54px; --t:7s;  --d:0s"><use href="#ball"/></svg>
+        <svg style="--x:22%; --s:34px; --t:9s;  --d:-3s"><use href="#ball"/></svg>
+        <svg style="--x:44%; --s:46px; --t:8s;  --d:-5s"><use href="#ball"/></svg>
+        <svg style="--x:68%; --s:30px; --t:10s; --d:-1s"><use href="#ball"/></svg>
+        <svg style="--x:82%; --s:58px; --t:7.5s;--d:-4s"><use href="#ball"/></svg>
+        <svg style="--x:94%; --s:36px; --t:9.5s;--d:-6s"><use href="#ball"/></svg>
+    </div>
+
+    <main class="gate">
+        <article class="ticket" id="ticket">
+
+            <div class="ticket-main">
+                <p class="ticket-kind">Tiket masuk portofolio</p>
+                <h1>Bagas Bagus</h1>
+                <p class="role">Saya adalah seorang siswa SMP</p>
+
+                <dl class="info">
+                    <div><dt>Email</dt><dd class="email">bagas@gmail.com</dd></div>
+                    <div><dt>Kota</dt><dd>Bogor</dd></div>
+                    <div><dt>Telepon</dt><dd class="nomor_telpon">08218348123</dd></div>
+                </dl>
+
+                <p class="text">Selamat datang di stadion portofolio saya. Tunjukkan tiket ini di pintu masuk, lalu kenalan, lihat skill, dan coba cetak gol!</p>
+
+                <div class="actions">
+                    <a class="btn btn-yellow kontak" id="enter" href="page2.html">Masuk stadion</a>
+                    <a class="btn btn-chalk" href="https://www.youtube.com/" target="_blank" rel="noopener">Link Sosmed</a>
+                </div>
+            </div>
+
+            <div class="ticket-stub">
+                <img class="gambar" src="kelinci.jpg" alt="Maskot tim: anak kelinci berbulu kuning" width="1500" height="1500">
+                <p class="mascot">Maskot tim</p>
+                <div class="barcode" aria-hidden="true"></div>
+            </div>
+
+        </article>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

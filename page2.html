@@ -1,109 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page 2</title>
+    <meta name="theme-color" content="#062f18">
+    <meta name="description" content="Portofolio Bagas Nasuiton, siswa SMP IDN Boarding School. Kenalan, lihat skill, dan cetak gol di hero!">
+    <title>Bagas Nasuiton | Portofolio Matchday</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+    <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="page2.css">
+    <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
+    <!-- Bola sepak (dipakai berulang lewat <use>) -->
+    <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+        <defs><clipPath id="ballclip"><circle cx="50" cy="50" r="47"/></clipPath></defs>
+        <symbol id="ball" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="47" fill="#fff" stroke="#0b2a17" stroke-width="4"/>
+            <g clip-path="url(#ballclip)" fill="#0b2a17">
+                <polygon points="50,33 66,45 60,64 40,64 34,45"/>
+                <circle cx="50" cy="0" r="13"/><circle cx="97.5" cy="34.5" r="13"/>
+                <circle cx="79.4" cy="90.5" r="13"/><circle cx="20.6" cy="90.5" r="13"/>
+                <circle cx="2.5" cy="34.5" r="13"/>
+            </g>
+            <g stroke="#0b2a17" stroke-width="3" stroke-linecap="round">
+                <line x1="50" y1="33" x2="50" y2="12"/><line x1="66" y1="45" x2="86" y2="38"/>
+                <line x1="60" y1="64" x2="72" y2="81"/><line x1="40" y1="64" x2="28" y2="81"/>
+                <line x1="34" y1="45" x2="14" y2="38"/>
+            </g>
+        </symbol>
+    </svg>
+
     <nav class="navbar">
         <div class="logo">
-            <img  src="images/logo-idn.png" alt="">
+            <a href="#home" aria-label="Kembali ke atas"><img src="images/logo-idn.png" alt="Logo IDN Boarding School"></a>
         </div>
-        <div class="menu">
-            <a href="">Home</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Buka menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="menu" id="menu">
+            <a href="#home">Home</a>
             <a href="#aboutme">About</a>
             <a href="#skills">Skills</a>
-            <a href="">Contact</a>
+            <a href="#contact">Contact</a>
         </div>
         <div class="button">
-            <a href="https://wa.me/6289639154877?text=Halo%20saya%20dari%20website" target="_blank">Contact me</a>
+            <a class="btn btn-yellow" href="https://wa.me/6289639154877?text=Halo%20saya%20dari%20website" target="_blank" rel="noopener">Contact me</a>
+        </div>
+        <!-- Bola yang menggelinding mengikuti scroll -->
+        <div class="progress" aria-hidden="true">
+            <div class="progress-bar"></div>
+            <svg class="progress-ball"><use href="#ball"/></svg>
         </div>
     </nav>
 
-    <div class="card">
-        <img class="gambar" src="images/12_years_boy_from_Chanderi_(3).jpg" alt="">
-        <h1 class="nama">Bagas Nasuiton</h1>
-        <p class="deskripsi">Saya adalah seorang siswa SMP IDN Boarding School</p>
+    <!-- ================= HERO: LAPANGAN ================= -->
+    <header id="home" class="hero" data-pitch>
+        <div class="pitch-lines" aria-hidden="true"><span class="box"></span></div>
+
+        <div class="scoreboard" aria-live="polite">
+            <span class="team">Bagas</span>
+            <b id="score">0</b>
+            <i>:</i>
+            <b>0</b>
+            <span class="team">Kiper</span>
+        </div>
+
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h1 class="nama" aria-label="Bagas Nasuiton">Bagas Nasuiton</h1>
+                <p class="deskripsi">Saya adalah seorang siswa SMP IDN Boarding School. Selamat datang di stadion portofolio saya!</p>
+                <div class="hero-cta">
+                    <a class="btn btn-yellow" href="#skills">Lihat skill</a>
+                    <a class="btn btn-chalk" href="#contact">Kirim pesan</a>
+                </div>
+                <p class="hint" id="hint">Ketuk lapangan untuk menendang bola. Cetak gol ke gawang!</p>
+            </div>
+
+            <figure class="card player-card" id="playerCard">
+                <span class="pc-shine" aria-hidden="true"></span>
+                <span class="pc-number" aria-hidden="true">10</span>
+                <img class="gambar" src="images/12_years_boy_from_Chanderi_(3).jpg" alt="Foto Bagas Nasuiton" width="960" height="1440">
+                <figcaption>
+                    <strong>Bagas Nasuiton</strong>
+                    <span>SMP IDN Boarding School</span>
+                    <ul class="pc-stats">
+                        <li><b>90</b> HTML</li>
+                        <li><b>80</b> CSS</li>
+                        <li><b>75</b> JS</li>
+                    </ul>
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="goal" id="goal" aria-hidden="true"></div>
+        <div class="ball-shadow" id="ballShadow" aria-hidden="true"></div>
+        <div class="ball" id="heroBall" aria-hidden="true"><svg><use href="#ball"/></svg></div>
+        <div class="goal-banner" id="goalBanner" aria-hidden="true">GOOOL!</div>
+    </header>
+
+    <!-- Papan LED pinggir lapangan -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+            <div class="ticker-group">
+                <span>SMP IDN Boarding School</span><svg><use href="#ball"/></svg>
+                <span>Bogor</span><svg><use href="#ball"/></svg>
+                <span>HTML</span><svg><use href="#ball"/></svg>
+                <span>CSS</span><svg><use href="#ball"/></svg>
+                <span>JavaScript</span><svg><use href="#ball"/></svg>
+                <span>Portofolio Bagas</span><svg><use href="#ball"/></svg>
+            </div>
+            <div class="ticker-group">
+                <span>SMP IDN Boarding School</span><svg><use href="#ball"/></svg>
+                <span>Bogor</span><svg><use href="#ball"/></svg>
+                <span>HTML</span><svg><use href="#ball"/></svg>
+                <span>CSS</span><svg><use href="#ball"/></svg>
+                <span>JavaScript</span><svg><use href="#ball"/></svg>
+                <span>Portofolio Bagas</span><svg><use href="#ball"/></svg>
+            </div>
+        </div>
     </div>
 
+    <!-- ================= ABOUT: PROFIL PEMAIN ================= -->
     <section id="aboutme" class="aboutme">
-        <div class="about-text">
-            <h2>About Me</h2>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt sint laborum mollitia labore porro, consequuntur repellat nesciunt odit voluptatibus nobis dignissimos, nihil natus sunt quis ut veniam molestiae enim id.</p>
-        </div>
-        <div class="about-image">
-            <h2>Myself</h2>
-            <img src="images/spiderman.avif" alt="">
+        <div class="about-wrap">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Halo! Saya Bagas, siswa SMP IDN Boarding School di Bogor. Saya sedang belajar membuat website dari nol: menyusun struktur dengan HTML, mempercantik tampilan dengan CSS, dan menghidupkannya dengan JavaScript. Seperti latihan sepak bola, kuncinya adalah rajin berlatih setiap hari.</p>
+                <dl class="stats">
+                    <div class="stat pop" style="--d:0ms"><dt>Klub</dt><dd>IDN Boarding School</dd></div>
+                    <div class="stat pop" style="--d:90ms"><dt>Kota</dt><dd>Bogor</dd></div>
+                    <div class="stat pop" style="--d:180ms"><dt>Posisi</dt><dd>Gelandang serang</dd></div>
+                    <div class="stat pop" style="--d:270ms"><dt>Nomor punggung</dt><dd>10</dd></div>
+                </dl>
+            </div>
+            <figure class="about-image pop">
+                <img src="images/spiderman.avif" alt="Spider-Man beraksi di antara gedung tinggi" width="1000" height="563">
+                <figcaption>Myself</figcaption>
+            </figure>
         </div>
     </section>
 
+    <!-- ================= SKILLS: STATISTIK PEMAIN ================= -->
     <section id="skills" class="skills">
-         <div class="skills-title">
-            <p>MY ABILITIES</p>
-            <h2> My <span>Skills</span></h2>
-            <p class="skills-subtitle"> Ini adalah skill yang punya</p>
-         </div>
-         <div class="skills-container">
+        <div class="skills-title">
+            <h2>My Skills</h2>
+            <p class="skills-subtitle">Ini adalah skill yang saya punya. Setiap skill punya posisinya di lapangan.</p>
+        </div>
+        <div class="skills-container">
 
-            <div class="skill-card">
-                <div class="skill-icon">🌍</div>
+            <div class="skill-card pop" style="--d:0ms; --w:90%">
+                <span class="skill-pos">Kiper</span>
+                <div class="skill-icon" aria-hidden="true">🧤</div>
                 <h3>HTML</h3>
-                <p>Saya bisa membuat struktur website menggunakan HTML dengan baik</p>
-                <div class="skill-bar">
-                    <div class="skill-progress html"></div>
+                <p class="skill-desc">Saya bisa membuat struktur website menggunakan HTML dengan baik</p>
+                <div class="skill-meter">
+                    <div class="skill-bar"><div class="skill-progress html"><svg class="tip"><use href="#ball"/></svg></div></div>
+                    <p class="skill-percent"><span class="count" data-to="90">90</span>%</p>
                 </div>
-                <p>90%</p>
             </div>
 
-            <div class="skill-card">
-                <div class="skill-icon">🌍</div>
+            <div class="skill-card pop" style="--d:130ms; --w:80%">
+                <span class="skill-pos">Gelandang</span>
+                <div class="skill-icon" aria-hidden="true">🎨</div>
                 <h3>CSS</h3>
-                <p>Saya bisa membuat styling website menggunakan CSS dengan baik</p>
-                <div class="skill-bar">
-                    <div class="skill-progress css"></div>
+                <p class="skill-desc">Saya bisa membuat styling website menggunakan CSS dengan baik</p>
+                <div class="skill-meter">
+                    <div class="skill-bar"><div class="skill-progress css"><svg class="tip"><use href="#ball"/></svg></div></div>
+                    <p class="skill-percent"><span class="count" data-to="80">80</span>%</p>
                 </div>
-                <p>80%</p>
             </div>
-            <div class="skill-card">
-                <div class="skill-icon">💻</div>
+
+            <div class="skill-card pop" style="--d:260ms; --w:75%">
+                <span class="skill-pos">Striker</span>
+                <div class="skill-icon" aria-hidden="true">⚡</div>
                 <h3>JavaScript</h3>
-                <p>Saya bisa membuat animasi website menggunakan JavaScript dengan baik</p>
-                <div class="skill-bar">
-                    <div class="skill-progress js"></div>
+                <p class="skill-desc">Saya bisa membuat animasi website menggunakan JavaScript dengan baik</p>
+                <div class="skill-meter">
+                    <div class="skill-bar"><div class="skill-progress js"><svg class="tip"><use href="#ball"/></svg></div></div>
+                    <p class="skill-percent"><span class="count" data-to="75">75</span>%</p>
                 </div>
-                <p>75%</p>
             </div>
 
-         </div>
+        </div>
     </section>
 
+    <!-- ================= CONTACT ================= -->
     <section id="contact" class="contact">
-        <div class="Contact-form">
-            <form action="https://formsubmit.co/dion@idn.sch.id" method="POST">
-                <label>nama</label>
-                <input type="text" name="nama" placeholder=" masukan nama anda ..">
-                <label >alamat</label>
-                <input type="text" name="alamat" placeholder="Masukan alamat anda...">
-                <label > Gender </label>
-                <select name="jenis_kelamin" id="">
-                    <option > Pilih gender anda</option>
-                    <option value="Pria">Pria</option>
-                    <option value="Wanita">Wanita</option>
-                </select>
-                <label >Pesan</label>
-                <textarea name="pesan" id="" placeholder="Masukan Pesan anda"></textarea>
-                <Button type="submit">kirim Pesan</Button>
-            </form>
-        </div>
-        <div class="contact-maps">
-            <h2>Lokasi saya</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.971549335213!2d107.03556067467862!3d-6.525276963791283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69bc6e5be3d9bd%3A0x6b9881dabd801476!2sSMP%20%26%20SMK%20IDN%20Boarding%20School!5e0!3m2!1sen!2sid!4v1788061265386!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <div class="contact-grid">
+            <div class="Contact-form pop">
+                <h2>Kirim pesan</h2>
+                <form action="https://formsubmit.co/dion@idn.sch.id" method="POST">
+                    <label for="nama">Nama</label>
+                    <input id="nama" type="text" name="nama" placeholder="Masukkan nama anda..." required>
+                    <label for="alamat">Alamat</label>
+                    <input id="alamat" type="text" name="alamat" placeholder="Masukkan alamat anda...">
+                    <label for="gender">Gender</label>
+                    <select name="jenis_kelamin" id="gender">
+                        <option value="">Pilih gender anda</option>
+                        <option value="Pria">Pria</option>
+                        <option value="Wanita">Wanita</option>
+                    </select>
+                    <label for="pesan">Pesan</label>
+                    <textarea name="pesan" id="pesan" placeholder="Masukkan pesan anda..." required></textarea>
+                    <button class="btn btn-yellow" type="submit"><svg class="btn-ball" aria-hidden="true"><use href="#ball"/></svg>Kirim pesan</button>
+                </form>
+            </div>
+            <div class="contact-maps pop" style="--d:150ms">
+                <h2>Lokasi saya</h2>
+                <iframe title="Peta lokasi SMP dan SMK IDN Boarding School" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.971549335213!2d107.03556067467862!3d-6.525276963791283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69bc6e5be3d9bd%3A0x6b9881dabd801476!2sSMP%20%26%20SMK%20IDN%20Boarding%20School!5e0!3m2!1sen!2sid!4v1788061265386!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
         </div>
     </section>
-   
 
+    <footer class="footer">
+        <p>Peluit akhir. Terima kasih sudah mampir ke stadion saya! © 2026 Bagas Nasuiton</p>
+        <button class="to-top" type="button" id="toTop" aria-label="Kembali ke kick-off"><svg><use href="#ball"/></svg></button>
+    </footer>
+
+    <script src="page2.js"></script>
 </body>
 </html>
